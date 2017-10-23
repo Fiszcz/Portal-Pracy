@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!--Nagłówek-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top naglowek">
+    <div class="container">
+        <a class="navbar-brand" href="#">Job Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-secondary">Twój profil</button>
+                </li>
+                <li class="nav-item pl-2">
+                    <button type="button" class="btn btn-secondary">Wyloguj</button>
+                </li>
+                <li class="nav-item active pl-4">
+                    <a class="nav-link" href="#">O nas</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<!--Opcje profilowe-->
+<div class="container .col-lg-6 justify-content-center bg-dark"
+     style="border-radius: 25px; color: ivory; max-width: 70%; padding-bottom: 1%; padding-top: 1%;">
+    <button class="btn btn-block btn-primary">Dodaj nową ofertę!</button>
+    <button class="btn btn-block btn-warning">Edytuj profil</button>
+</div>
+
+<!--Twoje oferty-->
+<br>
+<div class="container .col-lg-6 justify-content-center bg-dark"
+     style="border-radius: 25px; color: ivory; max-width: 70%; padding-bottom: 1%; padding-top: 1%;">
+    <h2 style="color: mistyrose; text-align: center;">Twoje oferty</h2>
+    <div class="container-fluid mt-1"
+         style="border-radius: 13px; color: #727b84; background: #868e96; max-width: 97%; padding-bottom: 1%; padding-top: 2%;">
+        <a href="#" class="list-group-item list-group-item-action list-group-item-info">
+            <div class="media">
+                <img class="mr-3" src="http://news.unl.edu/sites/default/files/Microsoft-PESTEL-Analysis.jpg" width="80px" height="80px"
+                     alt="Sample photo">
+                <div class="media-body">
+                    <h4>Programista VB for Office &nbsp;<span class="badge badge-primary">New</span></h4>
+                    <h6 class="inline">Microsoft</h6>
+                    <div class="row">
+                        <span class="inline col-7">Warszawa </span><span class="inline col-5"
+                                                                         style="text-align: right; color: #e0a800; "><strong>10000 - 20000 zł</strong></span>
+                    </div>
+                    <span class="badge badge-warning">VB</span>
+                    <span class="badge badge-warning">GIT</span>
+                    <span class="badge badge-warning">PhotoShop</span>
+                    <span class="badge badge-warning">Windows XP</span>
+                </div>
+                <button id="usun1" class="btn btn-danger btn-lg">Usuń</button>
+            </div>
+        </a>
+        <h4 class="mt-2" style="text-align: center; color: #1d2124">Zgłoszenia</h4>
+        <table class="table table-hover container .col-lg-8 justify-content-center bg-dark"
+               style=" color: ivory; opacity: 0.9; max-width: 90%;">
+            <thead>
+            <tr>
+                <th>Login</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Data Zgłoszenia</th>
+                <th>Zobacz profil</th>
+                <th>Usuń</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="z1z1">
+                <td>Marik1234</td>
+                <td>Mieczysław</td>
+                <td>Kowalski</td>
+                <td>13.05.2017</td>
+                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" id="z1zobacz1" role="button"
+                                                                      aria-pressed="true">Zobacz
+                    Profil</a></td>
+                <td class="table-danger" style="text-align: center;"><a href="#" class="btn btn-danger btn-sm" id="z1usun1" role="button"
+                                                                        aria-pressed="true">Usuń</a></td>
+            </tr>
+            <tr id="z1z2">
+                <td>Stifler</td>
+                <td>John</td>
+                <td>Ramno</td>
+                <td>16.05.2017</td>
+                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" id="z1zobacz2" role="button"
+                                                                      aria-pressed="true">Zobacz
+                    Profil</a></td>
+                <td class="table-danger" style="text-align: center;"><a href="#" id="z1usun2" class="btn btn-danger btn-sm" role="button"
+                                                                        aria-pressed="true">Usuń</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container-fluid mt-1"
+         style="border-radius: 13px; color: #727b84; background: #868e96; max-width: 97%; padding-bottom: 1%; padding-top: 2%;">
+        <a href="#" class="list-group-item list-group-item-action list-group-item-warning active">
+            <div class="media">
+                <img class="mr-3" src="http://news.unl.edu/sites/default/files/Microsoft-PESTEL-Analysis.jpg" width="80px" height="80px"
+                     alt="Sample photo">
+                <div class="media-body">
+                    <h4>Programista C#</h4>
+                    <h6>Microsoft</h6>
+                    <div class="row">
+                        <span class="inline col-7">Warszawa </span><span class="inline col-5"
+                                                                         style="text-align: right; color: #e0a800; "><strong>10000 - 20000 zł</strong></span>
+                    </div>
+                    <br>
+                    <span class="badge badge-warning">C#</span>
+                    <span class="badge badge-warning">GIT</span>
+                    <span class="badge badge-warning">Paint</span>
+                    <span class="badge badge-warning">Windows 3.11</span>
+                </div>
+                <button class="btn btn-danger btn-lg">Usuń</button>
+            </div>
+        </a>
+        <h4 class="mt-2" style="text-align: center; color: #1d2124">Brak Zgłoszeń</h4>
+    </div>
+</div>
+
+</body>
+</html>
