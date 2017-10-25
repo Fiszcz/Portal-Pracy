@@ -9,7 +9,12 @@
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/Glowna.css">
 </head>
-<body>
+<body ng-app="glowna">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="JS/walidacja.js"></script>
+<script src="JS/logowanie.js"></script>
+<script src="JS/angular.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -32,14 +37,14 @@
                             aria-controls="logowanie">Zaloguj się
                     </button>
                 </li>
-                <div class="collapse pl-2" id="panelLogowanie">
+                <div class="collapse pl-2" id="panelLogowanie" ng-submit="submit()" ng-controller="logowanie">
                     <li class="nav-item">
                         <form action="" class="form-inline">
                             <label class="mr-sm-2 mb-0 sr-only" for="loginLogowanie">Login</label>
-                            <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="loginLogowanie" placeholder="Login">
+                            <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-model="login" required id="loginLogowanie" placeholder="Login">
                             <label class="mr-sm-2 mb-0 sr-only" for="haslo">Hasło</label>
-                            <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="haslo" placeholder="Hasło">
-                            <button type="submit" id="logowanie" class="btn btn-default mt-2 mt-sm-0">Loguj!</button>
+                            <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-model="haslo" required id="haslo" placeholder="Hasło">
+                            <button type="submit" id="logowanie" ng-model="loguj" ng- class="btn btn-default mt-2 mt-sm-0">Loguj!</button>
                         </form>
                     </li>
                 </div>
