@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/Glowna.css">
-</head>
-<body ng-app="glowna">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-<script src="JS/walidacja.js"></script>
-<script src="JS/logowanie.js"></script>
-<script src="JS/angular.min.js"></script>
 
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>-->
+    <script src="JS/angular.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+</head>
+<body ng-app="glowna" ng-controller="myCtrl">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -34,18 +33,27 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#panelLogowanie" aria-expanded="false"
-                            aria-controls="logowanie">Zaloguj się
+                            aria-controls="logowanien">Zaloguj się
                     </button>
                 </li>
-                <div class="collapse pl-2" id="panelLogowanie" ng-submit="submit()" ng-controller="logowanie">
+
+                <div class="collapse pl-2" id="panelLogowanie">
                     <li class="nav-item">
-                        <form action="" class="form-inline">
+                        <form class="form-inline" id="formLogowanie">
+                            <!-- W razie bledow -->
+                            <style ng-if="czerwony==4">
+                                #loginLogowanie, #haslo {
+                                    background-color: palevioletred;
+                                }
+                            </style>
+                            <!-- ........ -->
                             <label class="mr-sm-2 mb-0 sr-only" for="loginLogowanie">Login</label>
                             <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-model="login" required id="loginLogowanie" placeholder="Login">
                             <label class="mr-sm-2 mb-0 sr-only" for="haslo">Hasło</label>
                             <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-model="haslo" required id="haslo" placeholder="Hasło">
-                            <button type="submit" id="logowanie" ng-model="loguj" ng- class="btn btn-default mt-2 mt-sm-0">Loguj!</button>
+                            <button ng-disabled="!haslo || !login" ng-click="wyslij()" class="btn btn-default mt-2 mt-sm-0">Loguj!</button>
                         </form>
+                        <div ng-if="czerwony==4" style="color: magenta">{{tekstBledu}}</div>  <!-- W razie bledow -->
                     </li>
                 </div>
                 <li class="nav-item pl-2">
@@ -72,8 +80,8 @@
             </div>
             <div class="modal-body">
                 <input id="login" type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Login">
-                <input type="password" id="haslo1" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Hasło">
-                <input type="password" id="haslo2" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Potwierdź hasło">
+                <input type="password" id="haslo1" ng-model="haslo1" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Hasło">
+                <input type="password" id="haslo2" ng-model="haslo2" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Potwierdź hasło">
                 <br>
                 <input type="email" id="email" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="e-mail">
                 <br>
@@ -126,24 +134,14 @@
 <div class="container .col-lg-6 justify-content-center bg-dark"
      style="border-radius: 25px; opacity: 1; margin-top: 35%; max-width: 70%; padding-bottom: 1%;">
     <h1 style="color: bisque; text-align: center"><strong>Baza ponad 2000 pracodawców i 6000 ofert! <br> Znajdź coś dla siebie!</strong></h1>
-    <form action="/html/tags/html_form_tag_action.cfm" class="form-inline" style="align-content: center;  ">
+    <form class="form-inline" style="align-content: center;  ">
         <input type="text" class="form-control" style="width: 40%; margin-left: 2%;" id="kluczowe" placeholder="Słowo Kluczowe Oferty">
         <input type="text" class="form-control" style="width: 27%; margin-left: 6%;" id="miasto" placeholder="Miasto">
         <button type="submit" id="szukaj" class="btn btn-info" style="margin-left: 6%; width: 10%">Szukaj!</button>
     </form>
 </div>
 
-<!-- Initialize Bootstrap functionality -->
-<script>
-    // Initialize tooltip component
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
-    // Initialize popover component
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
-</script>
+<!--<script src="JS/walidacja.js"></script>-->
+<script src="JS/logowanie.js"></script>
 </body>
 </html>
