@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/Glowna.css">
+    <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>-->
     <script src="JS/angular.js"></script>
@@ -53,7 +53,7 @@
                             <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-model="haslo" required id="haslo" placeholder="Hasło">
                             <button ng-disabled="!haslo || !login" ng-click="wyslij()" class="btn btn-default mt-2 mt-sm-0">Loguj!</button>
                         </form>
-                        <div ng-if="czerwony==4" class="blad">{{tekstBledu}}</div>  <!-- W razie bledow -->
+                        <div ng-if="czerwony==4" class="bladTekst">{{tekstBledu}}</div>  <!-- W razie bledow -->
                     </li>
                 </div>
                 <li class="nav-item pl-2">
@@ -79,13 +79,13 @@
                 <h4 class="modal-title" id="modalLabel">Formularz Rejestracyjny</h4>
             </div>
             <div class="modal-body">
-                <input id="login" ng-class="{bladObszar: bladLoginu}" type="text" class="form-control mr-sm-2 mb-2 mb-sm-0 bladObszar" placeholder="Login">
+                <input id="login" type="text" ng-model="loginRejestracja" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-class="{bladObszar: bladLoginu}" placeholder="Login">
                 <div ng-show="bladLoginu" class="bladTekst">{{trescBladLoginu}}</div>
-                <input type="password" ng-class="{bladObszar: bladHasla}" id="haslo1" ng-model="haslo1" style="background-color: blue" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Hasło">
-                <input type="password" ng-class="{bladObszar: bladHasla}" id="haslo2" ng-model="haslo2" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Potwierdź hasło">
+                <input type="password" ng-class="{bladObszar: bladHasla}" id="haslo1" ng-model="haslo1" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Hasło">
+                <input type="password" ng-class="{bladObszar: bladHasla}" id="haslo2" ng-style="" ng-model="haslo2" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Potwierdź hasło">
                 <div ng-show="bladHasla" class="bladTekst">{{trescBladHasla}}</div>
                 <br>
-                <input type="email" id="email" ng-class="{bladObszar: bladEmail}" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="e-mail">
+                <input type="email" ng-model="email" ng-class="{bladObszar: bladEmail}" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="e-mail">
                 <div ng-show="bladEmail" class="bladTekst">{{trescBladEmail}}</div>
                 <br>
 
@@ -94,34 +94,36 @@
                     Wypełnij dodatkowe informacje!
                 </button>
                 <div class="collapse" id="footwear">
-                    <input type="text" id="imie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Imię">
-                    <input type="text" id="nazwisko" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Nazwisko">
-                    Data Urodzenia: <input type="date" id="dataUrodzenia" class="form-control" placeholder="Data Urodzenia">
-                    <input type="tel" id="numer" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Numer Telefonu">
-                    Zdjęcie profilowe:<input type="file" id="zdjecie" class="form-control" placeholder="Twoje zdjęcie">
+                    <input type="text" ng-model="imie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Imię">
+                    <input type="text" ng-model="nazwisko" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Nazwisko">
+                    Data Urodzenia: <input type="date" ng-model="data" class="form-control" placeholder="Data Urodzenia">
+                    <input type="tel" ng-model="telefon" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Numer Telefonu">
+                    Zdjęcie profilowe:<input type="file" ng-class="{bladObszar: bladPliku}" ng-model="zdjecie" class="form-control" placeholder="Twoje zdjęcie">
+                    <div ng-show="bladPliku" class="bladTekst">{{trescBladPliku}}</div>
                     Czego Szukasz:
                     <label class="custom-control custom-checkbox">
-                        <input id="stala" type="checkbox" class="custom-control-input">
+                        <input ng-model="stala" value="1" type="checkbox" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Stałej pracy</span>
                     </label>
                     <label class="custom-control custom-checkbox">
-                        <input id="praktyka" type="checkbox" class="custom-control-input">
+                        <input ng-model="praktyka" value="10" type="checkbox" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Praktyk</span>
                     </label>
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" id="zlecenie" class="custom-control-input">
+                        <input type="checkbox" value="100" ng-model="zlecenie" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Zlecenia</span>
                     </label>
-                    <input type="text" id="adres" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Adres Zamieszkania">
-                    <input type="number" id="placaOd" class="form-control mr-sm-2 mb-2 mb-sm-0"
+                    <input type="text" ng-model="adres" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Adres Zamieszkania">
+                    <input type="number" ng-model="minimalne" class="form-control mr-sm-2 mb-2 mb-sm-0"
                            placeholder="Minimalne oczekiwania finansowe">
-                    <input type="text" id="wyksztalcenie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Wykształcenie">
-                    <input type="text" id="doswiadczenie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Doświadczenie">
-                    <input type="text" id="osiagniecia" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Osiągnięcia">
-                    Plik CV:<input type="file" id="CV" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Plik CV (tylko .pdf)">
+                    <input type="text" ng-model="wyksztalcenie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Wykształcenie">
+                    <input type="text" ng-model="doswiadczenie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Doświadczenie">
+                    <input type="text" ng-model="osiagniecia" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Osiągnięcia">
+                    Plik CV:<input type="file" ng-model="CV" class="form-control mr-sm-2 mb-2 mb-sm-0" ng-class="{bladObszar: bladPliku2}" placeholder="Plik CV (tylko .pdf)">
+                    <div ng-show="bladPliku2" class="bladTekst">{{trescBladPliku2}}</div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -144,7 +146,6 @@
     </form>
 </div>
 
-<!--<script src="JS/walidacja.js"></script>-->
 <script src="JS/logowanie.js"></script>
 </body>
 </html>
