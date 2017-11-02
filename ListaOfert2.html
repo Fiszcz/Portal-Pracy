@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="./JS/angular.js"></script>
 </head>
-<body style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<body ng-app="oferty" ng-controller="myCtrl"
+      style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -49,126 +52,25 @@
     <div class="container col-2 mt-2 mb-4 ml-5 bg-dark" style="border-radius: 25px; opacity: 0.9; color: ghostwhite;">
         <div>
             <h5>Wybierz technologie</h5>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">C#</span><span
-                        class="badge badge-dark">63</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">GIT</span><span
-                        class="badge badge-dark">60</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">Paint</span><span class="badge badge-dark">26</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">Windows 3.11</span><span
-                        class="badge badge-dark">25</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">Windows XP</span><span
-                        class="badge badge-dark">20</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">JAVA</span><span
-                        class="badge badge-dark">15</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">C++</span><span
-                        class="badge badge-dark">10</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">PYTHON</span><span class="badge badge-dark">8</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">UML</span><span
-                        class="badge badge-dark">6</span></span>
-            </label>
-            <br>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><span class="badge badge-primary">JAVASCRIPT</span><span
-                        class="badge badge-dark">4</span></span>
-            </label>
+            <div ng-repeat="technologia in popularneTechnologie">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="technologie" value="technologia.id">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><span class="badge badge-primary">{{technologia.nazwa}}</span><span
+                            class="badge badge-dark">{{technologia.liczba}}</span></span>
+                </label>
+                <br ng-hide="$last">
+            </div>
         </div>
         <div>
             <h5>Wybierz miasto</h5>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Warszawa (104)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Lódź (77)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Kraków (70)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Wrocław (66)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Gdańsk (40)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Lowicz (33)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Szczeciń (25)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Palo Alto (20)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>San Francisco (15)</strong></span>
-            </label>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"><strong>Sochaczew (10)</strong></span>
-            </label>
+            <div ng-repeat="miasto in miasta">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="miasta" value="miasto.id">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><strong>{{miasto.nazwa}} ({{miasto.ile}})</strong></span>
+                </label>
+            </div>
         </div>
     </div>
     <!-- Filtrowanie i lista ofert -->
@@ -178,29 +80,29 @@
             <h3 style="color: bisque; text-align: center"><strong>Baza ponad 2000 pracodawców i 6000 ofert! <br> Znajdź coś dla siebie!</strong>
             </h3>
             <form action="/html/tags/html_form_tag_action.cfm" class="form-inline" style="align-content: center;  ">
-                <input type="text" class="form-control" style="width: 40%; margin-left: 2%;" id="kluczowe"
+                <input type="text" class="form-control" style="width: 40%; margin-left: 2%;" ng-model="kluczowe"
                        placeholder="Słowo Kluczowe Oferty">
-                <input type="text" class="form-control" style="width: 27%; margin-left: 3%;" id="miasto"
+                <input type="text" class="form-control" style="width: 27%; margin-left: 3%;" ng-model="miastoSzukaj"
                        placeholder="Miasto">
-                <button type="submit" class="btn btn-info" style="margin-left: 3%; width: 10%;">Szukaj!</button>
+                <button type="button" class="btn btn-info" style="margin-left: 3%; width: 10%;" ng-click="szukaj()">Szukaj!</button>
                 <span class="form-inline mt-2"> &nbsp;&nbsp;Rodzaj oferty pracy: &nbsp; &nbsp;
         <label class="custom-control custom-checkbox">
-            <input type="checkbox" id="stala" class="custom-control-input">
+            <input type="checkbox" ng-model="stala" class="custom-control-input">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Stałej pracy</span>
         </label>
         <label class="custom-control custom-checkbox">
-            <input type="checkbox" id="praktyka" class="custom-control-input">
+            <input type="checkbox" ng-model="praktyki" class="custom-control-input">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Praktyk</span>
         </label>
         <label class="custom-control custom-checkbox">
-            <input type="checkbox" id="zlecenie" class="custom-control-input">
+            <input type="checkbox" ng-model="zlecenie" class="custom-control-input">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Zlecenia</span>
         </label>
             <label>
-        <button class="btn btn-info" style="margin-left: 3%;" data-toggle="collapse" data-target="#zaawansowane"
+        <button type="button" class="btn btn-info" style="margin-left: 3%;" data-toggle="collapse" data-target="#zaawansowane"
                 aria-expanded="false" aria-controls="zaawansowane">Zaawansowane</button>
             </label>
         </span>
@@ -208,14 +110,14 @@
                 <div class="collapse pl-2 mt-1 justify-content-around" id="zaawansowane">
                     <form action="/html/tags/html_form_tag_action.cfm" class="form-inline">
                         Płaca: Od
-                        <input type="number" class="form-control" id="placaOd">
+                        <input type="number" class="form-control" ng-model="placaOd">
                         Do
-                        <input type="number" class="form-control" id="placaDo">
+                        <input type="number" class="form-control" ng-model="placaDo">
                         <br>
                         Data Ogłoszenia: Od
-                        <input type="date" class="form-control" id="dataOd">
+                        <input type="date" class="form-control" ng-model="dataOd">
                         Do
-                        <input type="date" class="form-control" id="dataDo">
+                        <input type="date" class="form-control" ng-model="dataDo">
                     </form>
                 </div>
             </form>
@@ -223,76 +125,26 @@
         <br>
         <div class="list-group justify-content-center container" style="max-width: 95%; padding-left: 1%;">
             <div class="list-group">
-                <button class="list-group-item list-group-item-action  list-group-item-info" data-toggle="collapse" data-target="#oferta2"
-                        aria-expanded="false" aria-controls="oferta2">
+                <button ng-repeat="oferta in oferty" class="list-group-item list-group-item-action  list-group-item-info" data-toggle="collapse"
+                        data-target="#{{$index}}"
+                        aria-expanded="false" aria-controls="$index">
                     <div class="media">
                         <img class="mr-3" src="http://news.unl.edu/sites/default/files/Microsoft-PESTEL-Analysis.jpg" width="80px" height="80px"
-                             alt="Sample photo">
+                             alt="Logo Pracodawcy">
                         <div class="media-body">
-                            <h4>Programista VB for Office &nbsp;<span class="badge badge-primary">New</span></h4>
-                            <h6 class="inline">Microsoft</h6>
-                            <span class="inline">Warszawa </span><span class="inline"
-                                                                       style="text-align: right; color: #e0a800; margin-left: 70%;"><strong>10000 - 20000 zł</strong></span>
+                            <h4>{{oferta.nazwa}} &nbsp;</h4>
+                            <h6 class="inline">{{oferta.firma}}</h6>
+                            <span class="inline">{{oferta.miasto}} </span><span class="inline"
+                                                                                style="text-align: right; color: #e0a800; margin-left: 70%;"><strong>{{oferta.placaOd}} <span
+                                ng-show="oferta.placaDo">-</span> {{oferta.placaDo}} zł</strong></span>
                             <br>
-                            <div class="collapse" id="oferta2">
+                            <div class="collapse" id="$index">
                                 <h3><strong>Opis</strong></h3>
-                                <h6>The best firma na świecie poszukuje nowym ziomali do pisania kodu. Jeżeli uważasz że jesteś kozak to się do
-                                    nas zgłoś to może może cię zatrudnimy. Czekamy na ciebie!!</h6>
-                                <div id="z1" class="btn btn-sm btn-dark">Zgłoś się!</div>
+                                <h6>{{oferta.opis}}</h6>
+                                <div ng-click="zglos(oferta.id)" class="btn btn-sm btn-dark">Zgłoś się!</div>
                             </div>
-                            <span class="badge badge-warning">VB</span>
-                            <span class="badge badge-success">GIT</span>
-                            <span class="badge badge-warning">PhotoShop</span>
-                            <span class="badge badge-danger">Windows XP</span>
-                        </div>
-                    </div>
-                </button>
-                <button class="list-group-item list-group-item-action list-group-item-success" data-toggle="collapse" data-target="#oferta1"
-                        aria-expanded="false" aria-controls="oferta1">
-                    <div class="media">
-                        <img class="mr-3"
-                             src="https://yt3.ggpht.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAAAAAA/OixOH_h84Po/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
-                             width="80px" height="80px" alt="Sample photo">
-                        <div class="media-body">
-                            <h4>Analityk baz danych</h4>
-                            <h6>Google</h6>
-                            <span class="inline">Warszawa </span><span class="inline"
-                                                                       style="text-align: right; color: #e0a800; margin-left: 70%;"><strong>24000 zł</strong></span>
-                            <br>
-                            <div class="collapse" id="oferta1">
-                                <h3><strong>Opis</strong></h3>
-                                <h6>The best firma na świecie poszukuje nowym ziomali do pisania kodu. Jeżeli uważasz że jesteś kozak to się do
-                                    nas zgłoś to może może cię zatrudnimy. Czekamy na ciebie!!</h6>
-                                <div id="z2" class="btn btn-sm btn-dark">Zgłoś się!</div>
-                            </div>
-                            <span class="badge badge-success">Google</span>
-                            <span class="badge badge-success">Windows Server</span>
-                            <span class="badge badge-danger">Windows Vista</span>
-                            <span class="badge badge-danger">C++</span>
-                        </div>
-                    </div>
-                </button>
-                <button class="list-group-item list-group-item-action list-group-item-warning active" data-toggle="collapse"
-                        data-target="#oferta3" aria-expanded="false" aria-controls="oferta3">
-                    <div class="media">
-                        <img class="mr-3" src="http://news.unl.edu/sites/default/files/Microsoft-PESTEL-Analysis.jpg" width="80px" height="80px"
-                             alt="Sample photo">
-                        <div class="media-body">
-                            <h4>Programista C#</h4>
-                            <h6>Microsoft</h6>
-                            <span class="inline">Warszawa </span><span class="inline"
-                                                                       style="text-align: right; color: #e0a800; margin-left: 70%;"><strong>30000 - 50000 zł</strong></span>
-                            <br>
-                            <div class="collapse" id="oferta3">
-                                <h3><strong>Opis</strong></h3>
-                                <h6>The best firma na świecie poszukuje nowym ziomali do pisania kodu. Jeżeli uważasz że jesteś kozak to się do
-                                    nas zgłoś to może może cię zatrudnimy. Czekamy na ciebie!!</h6>
-                                <div id="z3" class="btn btn-sm btn-dark">Zgłoś się!</div>
-                            </div>
-                            <span class="badge badge-warning">C#</span>
-                            <span class="badge badge-danger">GIT</span>
-                            <span class="badge badge-warning">Paint</span>
-                            <span class="badge badge-warning">Windows 3.11</span>
+                            <span ng-repeat="technologiaWymagana in oferty.technologie" class="badge"
+                                  ng-class="{badge-warning: technologiaWymagana.poziom==2,badge-sucess: technologiaWymagana.poziom==1, badge-danger: technologiaWymagana.poziom ==3}">{{technologiaWymagana.nazwa}}</span>
                         </div>
                     </div>
                 </button>
@@ -300,5 +152,6 @@
         </div>
     </div>
 </div>
+<script src="./JS/listaOfert.js"></script>
 </body>
 </html>

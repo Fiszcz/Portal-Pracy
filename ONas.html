@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="./JS/angular.js"></script>
 </head>
-<body style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<body ng-app="ONas" ng-controller="myCtrl" style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -98,13 +100,15 @@
         </div>
         <div class="col-4"></div>
         <div class="col-3">
-            <button id="wyslij" class="btn btn-info">Wyślij!</button>
+            <button id="wyslij" ng-click="wyslij()" class="btn btn-info">Wyślij!</button>
         </div>
     </div>
     <div class="pb-3 pl-2 pr-2 pt-2">
-        <textarea id="wiadomosc" class="form-control container-fluid" rows="5"></textarea>
+        <div ng-show="blad" class="bladTekst"><strong>Trzeba wpisać treść wiadomości!</strong></div>
+        <textarea id="wiadomosc" ng-model="wiadomosc" class="form-control container-fluid" rows="5"></textarea>
     </div>
 </div>
 
+<script src="./JS/Onas.js"></script>
 </body>
 </html>

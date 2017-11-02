@@ -74,9 +74,9 @@ app.controller('myCtrl', function($scope,$http) {
             doswiadczenie: $scope.doswiadczenie,
             osiagniecia: $scope.osiagniecia,
             rodzaj: $scope.zlecenie + $scope.stala + $scope.praktyki,
-            data: $scope.data.toString(),
-            
-        }
+            data: $scope.data.toString()
+        };
+        rejestracjaW = JSON.stringify(rejestracjaW);
         $http({
             method : "POST",
             url : "gooddfsfs.com"

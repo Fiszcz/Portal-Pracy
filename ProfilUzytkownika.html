@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="./JS/angular.js"></script>
 </head>
-<body style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<body ng-app="profilowka" ng-controller="myCtrl" style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -48,23 +50,26 @@
     <div class="media">
         <img class="mr-3 ml-2 mt-3" src="http://i57.tinypic.com/2hh3upk.jpg" width="170px" alt="Sample photo" style="border-radius: 10px; ">
         <div class="media-body ml-3 mt-2">
-            <h3>Tomasz Oliszewczenewczenki</h3>
-            <h6>tomasz@gmail.com</h6>
-            <h6>Telefon: 48 152 555 233</h6>
-            <h6>Data urodzenia: 16.06.1991</h6>
-            <h6>Adres: Warszawa, ul.Tatarów 43</h6>
-            <h6>Poszukuje: Stałej pracy/Praktyt</h6>
-            <h6>Oczekiwania pieniężne: 10000 zł</h6>
-            <a class="btn btn-sm btn-info">Pobierz CV</a>
+            <h3 ng-show="imie || nazwisko">{{imie}} {{nazwisko}}</h3>
+            <h6 ng-show="email">{{email}}</h6>
+            <h6 ng-show="telefon">Telefon: {{telefon}}</h6>
+            <h6 ng-show="data">Data urodzenia: {{data}}</h6>
+            <h6 ng-show="adres">Adres: {{adres}}</h6>
+            <h6 ng-show="rodzajPracy">Poszukuje: {{rodzajPracy}}</h6>
+            <h6 ng-show="minimalne">Oczekiwania pieniężne: {{minimalne}} zł</h6>
+            <a ng-show="CV" class="btn btn-sm btn-info">Pobierz CV</a>
         </div>
     </div>
     <h4>Wykształcenie</h4>
-    <p>Politechnika Warszawska - kierunek Kulturoznawstwo</p>
+    <p>{{wyksztalcenie}}</p>
     <h4>Doświadczenie</h4>
-    <p>Google: Konserwator Powierzchni Płaskich</p>
+    <p>{{doswiadczenie}}</p>
     <h4>Osiągnięcia</h4>
-    <p>Stypendium Google Europe</p>
-    <h4>Zainteresowania</h4>
-    <p>Piwo; Dziewczyny; Telewizja;</p>
+    <p>{{osiagniecia}}</p>
+    <h4 ng-show="zainteresowania">Zainteresowania</h4>
+    <p ng-show="zainteresowania">{{zainteresowania}}</p>
+</div>
+
+<script src="./JS/profilowka.js"></script>
 </body>
 </html>

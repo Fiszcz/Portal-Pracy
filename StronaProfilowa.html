@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
-<body style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<body ng-app="stronaProfilowa" ng-controller="myCtrl"
+      style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -46,8 +47,8 @@
 <!--Opcje profilowe-->
 <div class="container .col-lg-6 justify-content-center bg-dark"
      style="border-radius: 25px; color: ivory; max-width: 70%; padding-bottom: 1%; padding-top: 1%;">
-    <button class="btn btn-block btn-primary">Dodaj nową ofertę!</button>
-    <button class="btn btn-block btn-warning">Edytuj profil</button>
+    <button ng-click="dodajOferte()" class="btn btn-block btn-primary">Dodaj nową ofertę!</button>
+    <button ng-click="edytujProfil()" class="btn btn-block btn-warning">Edytuj profil</button>
 </div>
 
 <!--Twoje oferty-->
@@ -55,25 +56,24 @@
 <div class="container .col-lg-6 justify-content-center bg-dark"
      style="border-radius: 25px; color: ivory; max-width: 70%; padding-bottom: 1%; padding-top: 1%;">
     <h2 style="color: mistyrose; text-align: center;">Twoje oferty</h2>
-    <div class="container-fluid mt-1"
+    <div ng-repeat="oferta in oferty" class="container-fluid mt-1" id="oferta.id"
          style="border-radius: 13px; color: #727b84; background: #868e96; max-width: 97%; padding-bottom: 1%; padding-top: 2%;">
         <a href="#" class="list-group-item list-group-item-action list-group-item-info">
             <div class="media">
                 <img class="mr-3" src="http://news.unl.edu/sites/default/files/Microsoft-PESTEL-Analysis.jpg" width="80px" height="80px"
                      alt="Sample photo">
                 <div class="media-body">
-                    <h4>Programista VB for Office &nbsp;<span class="badge badge-primary">New</span></h4>
-                    <h6 class="inline">Microsoft</h6>
+                    <h4>{{oferta.nazwa}} &nbsp;</h4>
+                    <h6 class="inline">{{oferta.firma}}</h6>
                     <div class="row">
-                        <span class="inline col-7">Warszawa </span><span class="inline col-5"
-                                                                         style="text-align: right; color: #e0a800; "><strong>10000 - 20000 zł</strong></span>
+                        <span class="inline col-7">{{oferta.miasto}}</span><span class="inline"
+                                                                                 style="text-align: right; color: #e0a800; margin-left: 70%;"><strong>{{oferta.placaOd}} <span
+                            ng-show="oferta.placaDo">-</span> {{oferta.placaDo}} zł</strong></span>
                     </div>
-                    <span class="badge badge-warning">VB</span>
-                    <span class="badge badge-warning">GIT</span>
-                    <span class="badge badge-warning">PhotoShop</span>
-                    <span class="badge badge-warning">Windows XP</span>
+                    <span ng-repeat="technologiaWymagana in oferty.technologie" class="badge"
+                          ng-class="{badge-warning: technologiaWymagana.poziom==2,badge-sucess: technologiaWymagana.poziom==1, badge-danger: technologiaWymagana.poziom ==3}">{{technologiaWymagana.nazwa}}</span>
                 </div>
-                <button id="usun1" class="btn btn-danger btn-lg">Usuń</button>
+                <button type="button" ng-click="usunOferte(oferta.id)" class="btn btn-danger btn-lg">Usuń</button>
             </div>
         </a>
         <h4 class="mt-2" style="text-align: center; color: #1d2124">Zgłoszenia</h4>
@@ -90,57 +90,25 @@
             </tr>
             </thead>
             <tbody>
-            <tr id="z1z1">
-                <td>Marik1234</td>
-                <td>Mieczysław</td>
-                <td>Kowalski</td>
-                <td>13.05.2017</td>
-                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" id="z1zobacz1" role="button"
+            <tr ng-repeat="zgloszenie in oferta.zgloszenia" id="zgloszenie.id">
+                <td>{{zgloszenie.login}}</td>
+                <td>{{zgloszenie.imie}}</td>
+                <td>{{zgloszenie.nazwisko}}</td>
+                <td>{{zgloszenie.data}}</td>
+                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" ng-click="zobacz(zgloszenie.login)" role="button"
                                                                       aria-pressed="true">Zobacz
                     Profil</a></td>
-                <td class="table-danger" style="text-align: center;"><a href="#" class="btn btn-danger btn-sm" id="z1usun1" role="button"
-                                                                        aria-pressed="true">Usuń</a></td>
-            </tr>
-            <tr id="z1z2">
-                <td>Stifler</td>
-                <td>John</td>
-                <td>Ramno</td>
-                <td>16.05.2017</td>
-                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" id="z1zobacz2" role="button"
-                                                                      aria-pressed="true">Zobacz
-                    Profil</a></td>
-                <td class="table-danger" style="text-align: center;"><a href="#" id="z1usun2" class="btn btn-danger btn-sm" role="button"
+                <td class="table-danger" style="text-align: center;"><a class="btn btn-danger btn-sm"  role="button" ng-click="usunZgloszenie(zgloszenie.id)"
                                                                         aria-pressed="true">Usuń</a></td>
             </tr>
             </tbody>
         </table>
-    </div>
-
-    <div class="container-fluid mt-1"
-         style="border-radius: 13px; color: #727b84; background: #868e96; max-width: 97%; padding-bottom: 1%; padding-top: 2%;">
-        <a href="#" class="list-group-item list-group-item-action list-group-item-warning active">
-            <div class="media">
-                <img class="mr-3" src="http://news.unl.edu/sites/default/files/Microsoft-PESTEL-Analysis.jpg" width="80px" height="80px"
-                     alt="Sample photo">
-                <div class="media-body">
-                    <h4>Programista C#</h4>
-                    <h6>Microsoft</h6>
-                    <div class="row">
-                        <span class="inline col-7">Warszawa </span><span class="inline col-5"
-                                                                         style="text-align: right; color: #e0a800; "><strong>10000 - 20000 zł</strong></span>
-                    </div>
-                    <br>
-                    <span class="badge badge-warning">C#</span>
-                    <span class="badge badge-warning">GIT</span>
-                    <span class="badge badge-warning">Paint</span>
-                    <span class="badge badge-warning">Windows 3.11</span>
-                </div>
-                <button class="btn btn-danger btn-lg">Usuń</button>
-            </div>
-        </a>
-        <h4 class="mt-2" style="text-align: center; color: #1d2124">Brak Zgłoszeń</h4>
+        <div ng-show>
+            <h4 class="mt-2" style="text-align: center; color: #1d2124">Brak Zgłoszeń</h4>
+        </div>
     </div>
 </div>
 
+<script src="./JS/stronaProfilowa.js"></script>
 </body>
 </html>
