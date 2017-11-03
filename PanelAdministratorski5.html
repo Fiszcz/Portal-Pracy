@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="./JS/angular.js"></script>
 </head>
-<body style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<body ng-app="administracyjny" ng-controller="myCtrl" style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -67,101 +69,101 @@
         <br>
         <!--Uzytkownicy-->
         <div role="tabpanel" class="tab-pane fade" id="uzytkownicy" aria-labelledby="hats-tab">
-            <form action="/html/tags/html_form_tag_action.cfm" class="form-inline">
+            <form class="form-inline">
                 <label class="mr-sm-2 mb-0" for="idUzytkownik">ID</label>
-                <input id="idUzytkownik" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0">
+                <input ng-model="idUzytkownik" id="idUzytkownik" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0">
                 <label class="mr-sm-2 mb-0" for="login">Login</label>
-                <input id="login" type="text" class="form-control mr-sm-2 mb-2 mb-sm-0">
+                <input ng-model="login" id="login" type="text" class="form-control mr-sm-2 mb-2 mb-sm-0">
                 <label class="mr-sm-2 mb-0" for="prawa">Prawa</label>
-                <input id="prawa" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0">
-                <button id="zobaczUzytkownicy" type="submit" class="btn btn-default mt-2 mt-sm-0">Zobacz!</button>
+                <input ng-model="prawa" id="prawa" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0">
+                <button ng-click="zobacz(1)" type="button" class="btn btn-default mt-2 mt-sm-0">Zobacz!</button>
             </form>
         </div>
 
         <!--Oferty-->
         <div role="tabpanel" class="tab-pane fade" id="Oferty" aria-labelledby="dropdown-shoes-tab">
-            <form action="/html/tags/html_form_tag_action.cfm" class="form-inline">
+            <form class="form-inline">
                 <div>
                     <label class="mr-sm-2 mb-0" for="idOferty">ID</label>
-                    <input id="idOferty" type="number" class="form-control mr-sm-1 mb-1 mb-sm-0">
+                    <input ng-model="idOferty" id="idOferty" type="number" class="form-control mr-sm-1 mb-1 mb-sm-0">
                 </div>
                 <div>
                     <label class="mr-sm-2 mb-0" for="nazwaOferty">Nazwa</label>
-                    <input id="nazwaOferty" type="text" class="form-control mr-sm-2 mb-2 mb-sm-0">
+                    <input ng-model="nazwaOferty" id="nazwaOferty" type="text" class="form-control mr-sm-2 mb-2 mb-sm-0">
                 </div>
                 <div>
                     <label class="mr-sm-2 mb-0" for="idPracodawcy">IDPracodawcy</label>
-                    <input id="idPracodawcy" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0">
+                    <input ng-model="idPracodawcy" id="idPracodawcy" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0">
                 </div>
                 <div>
                     <label class="mr-sm-2 mb-0" for="placaOd">Płaca: Od </label>
-                    <input type="number" class="form-control mr-sm-2 mb-2 mb-sm-0" id="placaOd">
+                    <input ng-model="placaOd" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0" id="placaOd">
                     <label class="mr-sm-2 mb-0" for="placaDo">Do</label>
-                    <input type="number" class="form-control mr-sm-2 mb-2 mb-sm-0" id="placaDo">
+                    <input ng-model="placaDo" type="number" class="form-control mr-sm-2 mb-2 mb-sm-0" id="placaDo">
                 </div>
                 <div>
                     <label class="mr-sm-2 mb-0" for="dataOgloszenia">Data Ogłoszenia</label>
-                    <input type="date" class="form-control mr-sm-2 mb-2 mb-sm-0" id="dataOgloszenia">
+                    <input ng-model="dataOgloszenia" type="date" class="form-control mr-sm-2 mb-2 mb-sm-0" id="dataOgloszenia">
                 </div>
                 <div style="align-content: flex-start;">
                     <label class="mr-sm-2 mb-0">Rodzaj oferty</label>
                     <label class="custom-control custom-checkbox">
-                        <input id="stala" type="checkbox" class="custom-control-input">
+                        <input ng-model="stala" type="checkbox" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Stała pracy</span>
                     </label>
                     <label class="custom-control custom-checkbox">
-                        <input id="praktyka" type="checkbox" class="custom-control-input">
+                        <input ng-model="praktyki" type="checkbox" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Praktyki</span>
                     </label>
                     <label class="custom-control custom-checkbox">
-                        <input id="zlecenie" type="checkbox" class="custom-control-input">
+                        <input ng-model="zlecenie" type="checkbox" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Zlecenie</span>
                     </label>
                 </div>
                 <div>
                     Sortuj po:
-                    <select id="sortujPo" class="custom-select ml-2">
-                        <option selected value="0">ID</option>
-                        <option value="1">Dacie</option>
-                        <option value="2">Nazwie</option>
-                        <option value="3">IDPracodawcy</option>
-                        <option value="3">Płacy</option>
+                    <select ng-model="sortujPo" class="custom-select ml-2">
+                        <option selected value="1">ID</option>
+                        <option value="2">Dacie</option>
+                        <option value="3">Nazwie</option>
+                        <option value="4">IDPracodawcy</option>
+                        <option value="5">Płacy</option>
                     </select>
                     <div class="btn-group" data-toggle="buttons">
                         <label id="rosnaco" class="btn btn-outline-success">
-                            <input type="radio" name="options" autocomplete="off" checked> Rosnąco
+                            <input type="radio" name="options" autocomplete="off"> Rosnąco
                         </label>
                         <label id="malejaco" class="btn btn-outline-success mr-1">
                             <input type="radio" name="options" autocomplete="off"> Malejąco
                         </label>
                     </div>
                 </div>
-                <button type="submit" id="zobaczOferty" class="btn btn-default mt-2 mt-sm-0" style="margin-left: 9%">Zobacz!</button>
+                <button type="button" ng-click="zobacz(2)" class="btn btn-default mt-2 mt-sm-0" style="margin-left: 9%">Zobacz!</button>
             </form>
         </div>
 
         <!--logowania-->
         <div role="tabpanel" class="tab-pane fade form-horizontal" id="logowania" aria-labelledby="dropdown-boots-tab">
-            <form action="/html/tags/html_form_tag_action.cfm" class="form-inline">
+            <form class="form-inline">
                 <label class="mr-sm-2 mb-0" for="idUzytkownikLogowanie">IDUżytkownika</label>
-                <input type="number" class="form-control mr-sm-2 mb-0" id="idUzytkownikLogowanie">
+                <input ng-model="idUzytkownikLogowanie" type="number" class="form-control mr-sm-2 mb-0" id="idUzytkownikLogowanie">
                 <label class="form-inline mr-sm-2 mb-0" for="dataLogowanie">Data Logowania</label>
-                <input type="date" class="form-control" id="dataLogowanie">
-                <button type="submit" id="zobaczLogowanie" class="btn btn-default ml-2">Zobacz!</button>
+                <input ng-model="dataLogowanie" type="date" class="form-control" id="dataLogowanie">
+                <button type="button" ng-click="zobacz(3)" class="btn btn-default ml-2">Zobacz!</button>
             </form>
         </div>
 
         <!--Wiadomości-->
         <div role="tabpanel" class="tab-pane fade form-horizontal" id="wiadomosci" aria-labelledby="dropdown-boots-tab">
-            <form action="/html/tags/html_form_tag_action.cfm" class="form-inline">
+            <form class="form-inline">
                 <label class="mr-sm-2 mb-0" for="idUzytkownikWiadomosc">IDUżytkownika</label>
-                <input type="number" class="form-control mr-sm-2 mb-0" id="idUzytkownikWiadomosc">
+                <input ng-model="idUzytkownikWiadomosc" type="number" class="form-control mr-sm-2 mb-0" id="idUzytkownikWiadomosc">
                 <label class="form-inline mr-sm-2 mb-0" for="dataWiadomosc">Data wysłania</label>
-                <input type="date" class="form-control" id="dataWiadomosc">
-                <button type="submit" id="zobaczWiadomosc" class="btn btn-default ml-2">Zobacz!</button>
+                <input ng-model="dataWiadomosc" type="date" class="form-control" id="dataWiadomosc">
+                <button type="button" ng-click="zobacz(4)" class="btn btn-default ml-2">Zobacz!</button>
             </form>
         </div>
     </div>
@@ -170,7 +172,7 @@
 
 <!--Wiadomości-->
 <table class="table table-hover container .col-lg-6 justify-content-center bg-dark"
-       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 60%;">
+       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 60%;" ng-show="ktoraTabela == 4">
     <thead>
     <tr>
         <th width="20%">ID</th>
@@ -180,30 +182,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td width="20%">1</td>
-        <td>7</td>
-        <td>13.04.2017 15:43</td>
-        <td><textarea name="message" rows="4" cols="60">Siemka ludzie. Super Strona. Polece ją znajomym.</textarea></td>
-    </tr>
-    <tr>
-        <td width="20%">2</td>
-        <td>0</td>
-        <td>13.04.2017 15:44</td>
-        <td><textarea name="message" rows="4" cols="60">Nie działa mi :(</textarea></td>
-    </tr>
-    <tr>
-        <td width="20%">3</td>
-        <td>8</td>
-        <td>13.04.2017 15:46</td>
-        <td><textarea name="message" rows="4" cols="60">To kiedy mogę was zaprosić na kawę ? </textarea></td>
+    <tr ng-repeat="wiadomosc in wiadomosci">
+        <td width="20%">{{wiadomosc.id}}</td>
+        <td>{{wiadomosc.idUzytkownik}}</td>
+        <td>{{wiadomosc.dataCzas}}</td>
+        <td><textarea name="message" rows="4" cols="60">{{wiadomosc.wiadomosc}}</textarea></td>
     </tr>
     </tbody>
 </table>
 
 <!--Oferty-->
 <table class="table table-hover container .col-lg-6 justify-content-center bg-dark"
-       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 90%;">
+       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 90%;" ng-show="ktoraTabela == 2">
     <thead>
     <tr>
         <th width="2%">ID</th>
@@ -220,49 +210,23 @@
     <tr>
         <td colspan="8"><strong>
             <h3>
-                <button type="button" id="usunWszystko" class="btn btn-danger btn-lg btn-block">Usuń wszystkie wyświetlone!</button>
+                <button type="button" ng-click="usunWszystko()" class="btn btn-danger btn-lg btn-block">Usuń wszystkie wyświetlone!</button>
             </h3>
         </strong></td>
     </tr>
     </tfoot>
     <tbody>
-    <tr>
+    <tr ng-repeat="oferta in oferty">
         <td>
-            <button name="idOferty" class="btn btn-info btn-lg">1</button>
+            <button name="idOferty" class="btn btn-info btn-lg">{{oferta.id}}</button>
         </td>
-        <td>Analityk baz danych (Google)</td>
-        <td><textarea name="message" rows="2" cols="45">Super oferta. Git majonez. Lux robota.</textarea></td>
-        <td>2000 - 3000 zł</td>
-        <td>Zlecenie</td>
-        <td>13.01.2016</td>
-        <td>3</td>
-        <td class="table-danger" id="usun1" style="text-align: center;"><a href="#" class="btn btn-danger btn-lg" role="button"
-                                                                           aria-pressed="true">Usuń</a></td>
-    </tr>
-    <tr>
-        <td>
-            <button name="idOferty" class="btn btn-info btn-lg">2</button>
-        </td>
-        <td>Analityk baz danych (Google)</td>
-        <td><textarea name="message" rows="2" cols="45">Super oferta. Git majonez. Lux robota.</textarea></td>
-        <td>2000 - 3000 zł</td>
-        <td>Zlecenie</td>
-        <td>13.01.2016</td>
-        <td>3</td>
-        <td class="table-danger" id="usun2" style="text-align: center;"><a href="#" class="btn btn-danger btn-lg" role="button"
-                                                                           aria-pressed="true">Usuń</a></td>
-    </tr>
-    <tr>
-        <td>
-            <button name="idOferty" class="btn btn-info btn-lg">3</button>
-        </td>
-        <td>Analityk baz danych (Google)</td>
-        <td><textarea name="message" rows="2" cols="45">Super oferta. Git majonez. Lux robota.</textarea></td>
-        <td>2000 - 3000 zł</td>
-        <td>Zlecenie</td>
-        <td>13.01.2016</td>
-        <td>3</td>
-        <td class="table-danger" id="usun3" style="text-align: center;"><a href="#" class="btn btn-danger btn-lg" role="button"
+        <td>{{oferta.nazwa}}</td>
+        <td><textarea name="message" rows="2" cols="45">{{oferta.opis}}</textarea></td>
+        <td>{{oferta.placaOd}} - {{oferta.placaDo}} zł</td>
+        <td><span ng-show="oferta.rodzaj.stala">Stała Praca</span><span ng-show="oferta.rodzaj.praktyki">Praktyki</span><span ng-show="oferta.rodzaj.zlecenie">Zlecenie</span></td>
+        <td>{{oferta.data}}</td>
+        <td>{{oferta.idPracodawcy}}</td>
+        <td class="table-danger" style="text-align: center;"><a class="btn btn-danger btn-lg" role="button" ng-click="usunOferte(oferta.id)"
                                                                            aria-pressed="true">Usuń</a></td>
     </tr>
     </tbody>
@@ -270,7 +234,7 @@
 
 <!--Użytkownicy-->
 <table class="table table-hover container .col-lg-6 justify-content-center bg-dark"
-       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 70%;">
+       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 70%;" ng-show="ktoraTabela == 1">
     <thead>
     <tr>
         <th>ID</th>
@@ -282,39 +246,21 @@
     <tfoot>
     <tr>
         <td><strong><h3>Dodaj nowego!</h3></strong></td>
-        <td><input type="text" id="nowyLogin" class="form-control" placeholder="Login"></td>
-        <td><input type="text" id="noweHaslo" class="form-control" placeholder="Hasło"><input type="number" class="form-control"
+        <td><input type="text" ng-model="nowyLogin" class="form-control" placeholder="Login"></td>
+        <td><input type="text" ng-model="noweHaslo" class="form-control" placeholder="Hasło"><input ng-model="prawaDlaNowego" type="number" class="form-control"
                                                                                               placeholder="prawa"></td>
-        <td style="text-align: center;"><a href="#" id="dadajUzytkownik" class="btn btn-success btn-lg mt-3" role="button" aria-pressed="true">Dodaj</a>
+        <td style="text-align: center;"><a ng-click="dodajUzytkownika()" class="btn btn-success btn-lg mt-3" role="button" aria-pressed="true">Dodaj</a>
         </td>
     </tr>
     </tfoot>
     <tbody>
-    <tr>
-        <td>1</td>
+    <tr ng-repeat="uzytkownik in uzytkownicy">
+        <td>{{uzytkownik.id}}</td>
         <td>
-            <button class="btn btn-info btn-lg">Marik1234</button>
+            <button class="btn btn-info btn-lg">{{uzytkownik.login}}</button>
         </td>
-        <td><input type="number" id="prawa1" class="form-control mr-sm-2 mb-2 mb-sm-0" value="3"></td>
-        <td class="table-danger" id="usun1u" style="text-align: center;"><a href="#" class="btn btn-danger btn-lg" role="button"
-                                                                            aria-pressed="true">Usuń</a></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>
-            <button class="btn btn-info btn-lg">Torbiasz</button>
-        </td>
-        <td><input type="number" id="prawa2" class="form-control mr-sm-2 mb-2 mb-sm-0" value="1"></td>
-        <td class="table-danger" id="usun2u" style="text-align: center;"><a href="#" class="btn btn-danger btn-lg" role="button"
-                                                                            aria-pressed="true">Usuń</a></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>
-            <button class="btn btn-info btn-lg">Zdzichu</button>
-        </td>
-        <td><input type="number" id="prawa3" class="form-control mr-sm-2 mb-2 mb-sm-0" value="1"></td>
-        <td class="table-danger" id="usun3u" style="text-align: center;"><a href="#" class="btn btn-danger btn-lg" role="button"
+        <td><input type="number" class="form-control mr-sm-2 mb-2 mb-sm-0" id="uzytkownik.id" ng-change="zmianaPraw(uzytkownik.id)" value="uzytkownik.prawa"></td>
+        <td class="table-danger" style="text-align: center;"><a ng-click="usunUzytkownika(uzytkownik.id)" class="btn btn-danger btn-lg" role="button"
                                                                             aria-pressed="true">Usuń</a></td>
     </tr>
     </tbody>
@@ -322,7 +268,7 @@
 
 <!--Logowania-->
 <table class="table table-hover container .col-lg-6 justify-content-center bg-dark"
-       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 60%;">
+       style="border-radius: 20px; color: ivory; opacity: 0.9; max-width: 60%;" ng-show="ktoraTabela == 3">
     <thead>
     <tr>
         <th width="20%">ID</th>
@@ -333,28 +279,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td width="20%">1</td>
-        <td>7</td>
-        <td>13.04.2017 15:43</td>
-        <td>13.04.2017 16:43</td>
-        <td>13.04.2017 17:43</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>7</td>
-        <td>13.04.2017 15:43</td>
-        <td>13.04.2017 16:43</td>
-        <td>13.04.2017 17:43</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>7</td>
-        <td>13.04.2017 15:43</td>
-        <td>13.04.2017 16:43</td>
-        <td>13.04.2017 17:43</td>
+    <tr ng-repeat="logowanie in logowania">
+        <td width="20%">{{logowanie.id}}</td>
+        <td>{{logowanie.idUzytkownika}}</td>
+        <td>{{logowanie.dataLogowania}}</td>
+        <td>{{logowanie.ostatniaAktywnosc}}</td>
+        <td>{{logowanie.wylogowanie}}</td>
     </tr>
     </tbody>
 </table>
+
+<script src="./JS/PanelAdministratorski.js"></script>
 </body>
 </html>

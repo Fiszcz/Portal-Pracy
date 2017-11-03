@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="./JS/angular.js"></script>
 </head>
 <body ng-app="stronaProfilowa" ng-controller="myCtrl"
       style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
@@ -76,8 +78,8 @@
                 <button type="button" ng-click="usunOferte(oferta.id)" class="btn btn-danger btn-lg">Usuń</button>
             </div>
         </a>
-        <h4 class="mt-2" style="text-align: center; color: #1d2124">Zgłoszenia</h4>
-        <table class="table table-hover container .col-lg-8 justify-content-center bg-dark"
+        <h4 class="mt-2" style="text-align: center; color: #1d2124" ng-hide="oferta.zgloszenia.length == 0">Zgłoszenia</h4>
+        <table ng-hide="oferta.zgloszenia.length == 0" class="table table-hover container .col-lg-8 justify-content-center bg-dark"
                style=" color: ivory; opacity: 0.9; max-width: 90%;">
             <thead>
             <tr>
@@ -95,15 +97,17 @@
                 <td>{{zgloszenie.imie}}</td>
                 <td>{{zgloszenie.nazwisko}}</td>
                 <td>{{zgloszenie.data}}</td>
-                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" ng-click="zobacz(zgloszenie.login)" role="button"
+                <td class="table-info" style="text-align: center;"><a href="#" class="btn btn-info btn-sm" ng-click="zobacz(zgloszenie.login)"
+                                                                      role="button"
                                                                       aria-pressed="true">Zobacz
                     Profil</a></td>
-                <td class="table-danger" style="text-align: center;"><a class="btn btn-danger btn-sm"  role="button" ng-click="usunZgloszenie(zgloszenie.id)"
+                <td class="table-danger" style="text-align: center;"><a class="btn btn-danger btn-sm" role="button"
+                                                                        ng-click="usunZgloszenie(zgloszenie.id)"
                                                                         aria-pressed="true">Usuń</a></td>
             </tr>
             </tbody>
         </table>
-        <div ng-show>
+        <div ng-show="oferta.zgloszenia.length == 0">
             <h4 class="mt-2" style="text-align: center; color: #1d2124">Brak Zgłoszeń</h4>
         </div>
     </div>
