@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja Profilu</title>
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/Najwazniejsze.css">
+
+    <script src="JS/angular.js"></script>
+</head>
+<body ng-app="edycja" ng-controller="myCtrl" style=" background: url(http://linkedinriches.com/wp-content/uploads/2015/05/Blue-Clouds.jpg) no-repeat center fixed;   background-size: cover;">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!--Nagłówek-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top naglowek">
+    <div class="container">
+        <a class="navbar-brand" href="#">Job Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><button type="button" ng-click="profil()" class="btn btn-secondary">Twój profil</button></li>
+                <li class="nav-item pl-2"><button type="button"  ng-click="wyloguj()" class="btn btn-secondary">Wyloguj</button></li>
+                <li class="nav-item active pl-4">
+                    <button class="nav-link" type="button" ng-click="oNas()">O nas</button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<div class="container .col-lg-6 justify-content-center bg-dark mb-5" style="border-radius: 25px; color: ivory; max-width: 70%; padding-bottom: 1%;">
+    <h3 style="color: bisque; text-align: center"><strong>Edycja Profilu</strong></h3>
+    <form action="">
+        <div class="row justify-content-center">
+            <label class="col-4">Imię <input class="form-control" ng-model="imie"> </label>
+            <label class="col-4">Nazwisko <input type="text" class="form-control" ng-model="nazwisko"></label>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">Zmień Hasło!</div>
+            <div class="row justify-content-center">
+                <input type="password" ng-class="{bladObszar: bladHasla}" ng-model="haslo1" class="form-control col-4" placeholder="Nowe hasło">
+                <input type="password" ng-class="{bladObszar: bladHasla}" ng-model="haslo2" class="form-control col-4" placeholder="Wpisz ponownie">
+                <div ng-show="bladHasla" class="bladTekst">{{trescBladHasla}}</div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <label style="text-align: center;">Data urodzenia <input type="date" ng-model="data" class="form-control"> </label>
+        </div>
+        <div class="row justify-content-center">
+            <label style="width: 30%">Telefon <input type="text" class="form-control" ng-model="telefon"></label>
+            <label style="width: 30%" ng-class="{bladObszar: bladEmail}">E-mail <input type="email" class="form-control" ng-model="email"></label>
+            <div ng-show="bladEmail" class="bladTekst">{{trescBladEmail}}</div>
+        </div>
+        <div class="container">
+            <label>Adres </label><input type="text" class="form-control" ng-model="adres">
+            <lable>Wykształcenie </lable><textarea  rows="3" ng-model="wyksztalcenie" class="form-control"></textarea>
+            <label>Zainteresowania </label><textarea rows="2" ng-model="zainteresowania" class="form-control"></textarea>
+            <label>Doświadczenie </label><textarea rows="3" ng-model="doswiadczenie" class="form-control"></textarea>
+            <label>Osiągnięcia </label><textarea type="text" rows="3" cols="25" ng-model="osiagniecia" class="form-control"></textarea>
+            <div class="row justify-content-center mt-2">
+                <div class="col-5">
+                    <label>Oczekiwania pienieżne od pracodawcy: </label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" ng-model="placaOd">
+                            <span class="input-group-addon">&nbsp;-&nbsp;</span>
+                            <input type="number" class="form-control" ng-model="placaDo">
+                        </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-5">
+                    <label>Poszukiwany rodzaj pracy:</label>
+                        <br>
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" ng-model="stala" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Stałej pracy</span>
+                        </label>
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" ng-model="praktyki" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Praktyk</span>
+                        </label>
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" ng-model="zlecenie" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Zlecenia</span>
+                        </label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <label>Twoje zdjęcie: <input type="file" ng-model="zdjecie" id="zdjecie" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Twoje zdjęcie"></label>
+        </div>
+        <hr style="border-width: 4px; color: white; border-color: white;">
+        <div class="row justify-content-center"><h3>Znane Tobie technologie</h3></div>
+        <div class="justify-content-center d-flex align-content-center mt-2" style="border: solid; max-width: 76%; color: ivory; margin-left: 12%; margin-right: 12%;">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Nazwa tchnologii</th>
+                    <th>Poziom zaawansowania</th>
+                    <th>-</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th><input type="text" ng-model="nazwaTechnologii" class="form-control"></th>
+                    <th>
+                        <div class="btn-group row btn-group-sm rjustify-content-center d-flex" data-toggle="buttons" style="margin-left: 2px;">
+                            <label class="btn btn-outline-success" id="pod">
+                                <input type="radio" data-ng-model="podstawowy" name="options" value="1" autocomplete="off"> Podstawowy
+                            </label>
+                            <label class="btn btn-outline-warning" id="sre">
+                                <input type="radio" data-ng-model="sredni" name="options" value="2" autocomplete="off"> Średni
+                            </label>
+                            <label class="btn btn-outline-danger" id="zaa">
+                                <input type="radio" data-ng-model="zaawansowany" value="3" name="options" autocomplete="off"> Zaawansowany
+                            </label>
+                        </div>
+                    </th>
+                    <th><button type="button" ng-click="dodaj()" class="btn btn-success btn-sm">Dodaj!</button></th>
+                </tr>
+                </tfoot>
+                <tbody id="cialoTabeli">
+                <tr ng-repeat="technologia in technologie" id="{{technologia.id}}">
+                    <td>{{technologia.nazwa}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm row justify-content-center d-flex" data-toggle="buttons">
+                            <label class="btn btn-outline-success" ng-class="{active: technologia.poziom == 1}" ng-click="zmienPoziom(technologia.id,1)">
+                                <input type="radio" autocomplete="off"> Podstawowy
+                            </label>
+                            <label class="btn btn-outline-warning" ng-class="{active: technologia.poziom == 2}" ng-click="zmienPoziom(technologia.id,2)">
+                                <input type="radio" autocomplete="off"> Średni
+                            </label>
+                            <label class="btn btn-outline-danger" ng-class="{active: technologia.poziom == 3}" ng-click="zmienPoziom(technologia.id,3)">
+                                <input type="radio" autocomplete="off" > Zaawansowany
+                            </label>
+                        </div>
+                    </td>
+                    <td><button type="button" ng-click="usunTechnologie(technologia.id)" class="btn btn-danger btn-sm">Usuń!</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr style="border-width: 4px; color: white; border-color: white;">
+        <div class="justify-content-center mt-3">
+            <button type="button" ng-click="zapisz()" class="btn btn-block btn-success btn-lg">Zapisz zmiany!</button>
+        </div>
+        <div class="justify-content-center d-flex mt-2">
+            <button type="button" class="btn btn-danger btn-sm align-content-center" data-toggle="modal" data-target="#usunkonto">Usuń konto!</button>
+        </div>
+    </form>
+</div>
+
+<!-- The modal - usun konto-->
+<div class="modal fade" id="usunkonto" tabindex="-1" role="dialog" style="margin-top: 20%" aria-labelledby="usunkonto" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="modalLabel">Usuwanie konta</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <input type="password" ng-model="hasloDoUsuniecia" class="form-control col-4" placeholder="Wpisz Hasło">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="usunOstateczne()" class="btn btn-secondary" data-dismiss="modal">Usuń :(</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./JS/Edycja.js"></script>
+</body>
+</html>
